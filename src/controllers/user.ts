@@ -76,3 +76,9 @@ export const checkUser = (req:Request, res:Response) =>{
   const user = {email:req.user?.email, id:req.user?._id}
   res.status(200).json({message:"User authorized", user})
 }
+
+
+export const logoutUser = (req:Request, res:Response) =>{
+  res.clearCookie('auth_token', { httpOnly: true, path: '/' })
+  res.status(200).json({message:'Logged out successfully'})
+}

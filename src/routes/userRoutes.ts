@@ -1,5 +1,5 @@
 import express from "express";
-import { loginUser, signupUser, checkUser } from "../controllers/user";
+import { loginUser, signupUser, checkUser, logoutUser } from "../controllers/user";
 import { authentication } from "../middlewares/authentication";
 const userRouter = express.Router();
 // @ts-ignore
@@ -8,5 +8,7 @@ userRouter.post("/signup", signupUser);
 userRouter.post("/login", loginUser);
 // @ts-ignore
 userRouter.get("/check", authentication, checkUser);
+// @ts-ignore
+userRouter.get('/logout', authentication, logoutUser)
 
 export default userRouter;

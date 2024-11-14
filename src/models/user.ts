@@ -12,6 +12,14 @@ const User: Schema = new Schema({
     required: true,
     minLength: 6,
   },
+  totalSent:{
+    type:Number,
+    default:0
+  },
+  totalInbox:{
+    type:Number,
+    default:0
+  }
 });
 
 export default mongoose.model<UserInterface>("user", User);
